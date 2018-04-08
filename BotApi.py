@@ -19,7 +19,7 @@ class BotApi(object):
   status_json = '/getUpdates'
   send_message_method = '/sendMessage'
   update_url = bot_api + status_json
-  group_id = -185831716
+  group_id = 454062609
 
   load_command = "/load"
   info_command = "/info"
@@ -32,16 +32,16 @@ class BotApi(object):
     error_message = "Wrong command!"
 
     if command == BotApi.load_command:
-      http_post = requests.post(BotApi.bot_api + self.send_message_method, data={'chatid': -185831716, 'text': str(infomation)})
+      http_post = requests.post(BotApi.bot_api + self.send_message_method, data={'chatid': 454062609, 'text': str(infomation)})
       print "Response from Web-Server: \n" + str((http_post.status_code, http_post.reason))
     elif command == BotApi.info_command:
-      http_post = requests.post(BotApi.bot_api + self.send_message_method, data={'chatid': -185831716, 'text': str(infomation)})
+      http_post = requests.post(BotApi.bot_api + self.send_message_method, data={'chatid': 454062609, 'text': str(infomation)})
       print "Response from Web-Server: \n" + str((http_post.status_code, http_post.reason))
     elif command == BotApi.mem_command:
-      http_post = requests.post(BotApi.bot_api + self.send_message_method, data={'chatid': -185831716, 'text': str(infomation)})
+      http_post = requests.post(BotApi.bot_api + self.send_message_method, data={'chatid': 454062609, 'text': str(infomation)})
       print "Response from Web-Server: \n" + str((http_post.status_code, http_post.reason))
     elif command == BotApi.check_site_status:
-      http_post = requests.post(BotApi.bot_api + self.send_message_method, data={'chatid': -185831716, 'text': str(infomation)})
+      http_post = requests.post(BotApi.bot_api + self.send_message_method, data={'chatid': 454062609, 'text': str(infomation)})
       print "Response from Web-Server: \n" + str((http_post.status_code, http_post.reason)) + "\n"
 
   def get_command(self):
