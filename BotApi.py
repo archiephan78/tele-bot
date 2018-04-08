@@ -67,32 +67,32 @@ class BotApi(object):
       self.send_message(command, '')
       print "Nothing to send, error command"
 
-    def get_auto_site_status(self):
-      api_status = SystemUtils()
-      while 1:
-        try:
-          api_status.get_auto_site_status()
-          time.sleep(5)
-        except Exception as e:
-          time.sleep(5)
-          print str(e)
+  def get_auto_site_status(self):
+    api_status = SystemUtils()
+    while 1:
+      try:
+        api_status.get_auto_site_status()
+        time.sleep(5)
+      except Exception as e:
+        time.sleep(5)
+        print str(e)
     
-    def engine(self):
-      while 1:
-        try:
-          self.get_command()
-          time.sleep(5)
-        except Exception as e:
-          time.sleep(5)
-          print str(e)
+  def engine(self):
+    while 1:
+      try:
+        self.get_command()
+        time.sleep(5)
+      except Exception as e:
+        time.sleep(5)
+        print str(e)
 
-    def run_thread1(self):
-      thread = threading.Thread(target=self.get_auto_site_status)
-      thread.start()
+  def run_thread1(self):
+    thread = threading.Thread(target=self.get_auto_site_status)
+    thread.start()
 
-    def run_thread2(self):
-      thread = threading.Thread(target=self.engine)
-      thread.start()
+  def run_thread2(self):
+    thread = threading.Thread(target=self.engine)
+    thread.start()
 
 if __name__ == '__main__':
 
