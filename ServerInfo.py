@@ -10,7 +10,7 @@ class ServerInfo(object):
     self.local_distributive = ''
     self.local_architecture = ''
 
-  def _string(self):
+  def to_string(self):
     all_data = "Operation System: " + str(self.local_os) + "\n" "HostName: " + str(self.local_hostname) + "\n" + "Kernel: " + str(self.local_kernel) + "\n" \
                + "Distributive: " + str(self.local_distributive) + "\n" + "Archietecture: " + str(self.local_architecture) + "\n"
     return str(all_data)

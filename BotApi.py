@@ -15,7 +15,9 @@ class BotApi(object):
   def __init__(self):
     self.json_reponse = None
 
-  bot_api = 'https://api.telegram.org/bot574513532:AAFN3cEsV48DfFUv90wYhITiPb-nlFQ81Pg'
+  bot_token = '574513532:AAFN3cEsV48DfFUv90wYhITiPb-nlFQ81Pg'
+  bot_url = 'https://api.telegram.org/bot'
+  bot_api = bot_url + bot_token
   status_json = '/getUpdates'
   send_message_method = '/sendMessage'
   update_url = bot_api + status_json
@@ -53,7 +55,7 @@ class BotApi(object):
 
     if command == BotApi.info_command:
       inf == system.get_info_server(command)
-      information = inf._string()
+      information = inf.to_string()
       self.send_message(command, infomation)
     elif command == BotApi.load_command:
       load = system.get_load_server(command)

@@ -14,9 +14,9 @@ class SystemUtils(object):
       info = ServerInfo()
       info.local_distributive = platform.linux_distribution()
       info.local_architecture = platform.architecture()
-      info.local_hostname = platform.uname()[1]
+      info.local_hostname = platform.uname()
       info.local_kernel = platform.local_kernel()
-      info.local_os = platform.uname()[0]
+      info.local_os = platform.os()
     else:
       print "Cant get info"
     return info
