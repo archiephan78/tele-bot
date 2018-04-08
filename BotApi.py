@@ -116,8 +116,8 @@ class BotApi(object):
               print "Nothing to send, error command has been entered"
           else:
             self.detect_wrong_user()
-      else:
-        print "File: " + file_with_id + " doesn't exist"
+    else:
+      print "File: " + file_with_id + " doesn't exist"
 
 
   def detect_wrong_user(self):
