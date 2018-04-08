@@ -92,7 +92,8 @@ class BotApi(object):
 
           system = SystemUtils()
           command = self.json_reponse['result'][-1]['message']['text']
-
+          
+        if last_user_id == self.user_id:
           if command == BotApi.info_command:
             inf == system.get_info_server(command)
             information = inf.to_string()
