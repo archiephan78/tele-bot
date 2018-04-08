@@ -24,7 +24,7 @@ class BotApi(object):
   load_command = "/load"
   info_command = "/info"
   help_command = "/help"
-  mem_commmand = "/memory"
+  mem_command = "/memory"
   check_site_status = "/check_site_status"
 
   def send_message(self, command, infomation):
@@ -37,7 +37,7 @@ class BotApi(object):
     elif command == BotApi.info_command:
       http_post = requests.post(BotApi.bot_api + self.send_message_method, data={'chatid': -185831716, 'text': str(infomation)})
       print "Response from Web-Server: \n" + str((http_post.status_code, http_post.reason))
-    elif command == BotApi.mem_commmand
+    elif command == BotApi.mem_command:
       http_post = requests.post(BotApi.bot_api + self.send_message_method, data={'chatid': -185831716, 'text': str(infomation)})
       print "Response from Web-Server: \n" + str((http_post.status_code, http_post.reason))
     elif command == BotApi.check_site_status:
