@@ -59,6 +59,6 @@ class SystemUtils(object):
     status_final = str(site_status)
 
     if status_final != "200":
-      print status_final
+      print 'loi roi kia'
       requests.post(url, data={'chat_id': 454062609, 'text': str(down)})
 
