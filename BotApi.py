@@ -56,6 +56,7 @@ class BotApi(object):
     with open(file_with_id, 'r') as myfile:
       last_id = myfile.read()
       myfile.close()
+
     offset = int(last_id)
     offset = int(offset) - 1
 
@@ -76,8 +77,9 @@ class BotApi(object):
     for key in self.json_response['result']:
       update_id_array.append(key['update_id'])
 
-      path_to_file = os.getcwd()
-      file_with_id = path_to_file + "/update_id_file.txt"
+    path_to_file = os.getcwd()
+    file_with_id = path_to_file + "/update_id_file.txt"
+
     if os.path.exists(file_with_id):
       with open(file_with_id, 'r+') as myfile:
         last_update_id = myfile.read()
@@ -90,32 +92,33 @@ class BotApi(object):
           myfile.write(str(last_update_id_from_json))
           myfile.close()
 
+          command = self.json_response['result'][-1]['message']['text']
           system = SystemUtils()
-          command = self.json_reponse['result'][-1]['message']['text']
-          
-        if last_user_id == self.user_id:
-          if command == BotApi.info_command:
-            inf == system.get_info_server(command)
-            information = inf.to_string()
-            self.send_message(command, infomation)
-          elif command == BotApi.load_command:
-            load = system.get_load_server(command)
-            self.send_message(command, load)
-          elif command == BotApi.help_command:
-            self.send_message(command, '')
-          elif command == BotApi.mem_commmand:
-            mem = system.get_mem_server(command)
-            self.send_message(command, mem)
-          elif command == BotApi.check_site_status:
-            online_status = system.get_http_status(command)
-            self.send_message(command, online_status)
-          else:
-            self.send_message(command, '')
-            print "Nothing to send, error command"
+
+          if last_user_id == self.user_id:
+            if command == BotApi.info_command:
+              inf = system.get_info_server(command)
+              information = inf.to_string()
+              self.send_message(command, information)
+            elif command == BotApi.help_command:
+              self.send_message(command, '')
+            elif command == BotApi.load_command:
+              load = system.get_load_server(command)
+              self.send_message(command, load)
+            elif command == BotApi.mem_command:
+              mem = system.get_mem_server(command)
+              self.send_message(command, mem)
+            elif command == BotApi.check_site_status:
+              online_status = system.get_http_status(command)
+              self.send_message(command, online_status)
+            else:
+              self.send_message(command, '')
+              print "Nothing to send, error command has been entered"
+            else:
+              self.detect_wrong_user()
         else:
-          self.detect_wrong_user()
-    else:
-      print "File: " + file_with_id + " doesn't exist"
+            print "File: " + file_with_id + " doesn't exist"
+
 
   def detect_wrong_user(self):
     values = {}
