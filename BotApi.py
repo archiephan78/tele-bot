@@ -71,7 +71,7 @@ class BotApi(object):
     api_status = SystemUtils()
     while 1:
       try:
-        api_status.get_auto_site_status()
+        api_status.get_http_status()
         time.sleep(5)
       except Exception as e:
         time.sleep(5)
