@@ -126,7 +126,7 @@ class BotApi(object):
     first_name_wrong_user = self.json_response['result'][-1]['message']['chat']['first_name']
     last_name_wrong_user = self.json_response['result'][-1]['message']['chat']['last_name']
     values['text'] = "Hello " + first_name_wrong_user + " " + last_name_wrong_user + " you are not authorized to send commands"
-    http_post = requests.post(BotApi.full_url + self.send_message_method, data=values)
+    http_post = requests.post(BotApi.bot_api + self.send_message_method, data=values)
 
   def get_auto_site_status(self):
     api_status = SystemUtils()
