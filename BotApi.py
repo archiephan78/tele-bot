@@ -21,7 +21,7 @@ class BotApi(object):
   status_json = '/getUpdates'
   send_message_method = '/sendMessage'
   update_url = bot_api + status_json
-  group_id = 454062609
+  user_id = 454062609
 
   load_command = "/load"
   info_command = "/info"
