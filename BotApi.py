@@ -42,6 +42,9 @@ class BotApi(object):
       print "Response from Web-Server: \n" + str((http_post.status_code, http_post.reason))
     elif command == BotApi.check_site_status:
       http_post = requests.post(BotApi.bot_api + self.send_message_method, data={'chatid': 454062609, 'text': str(infomation)})
+      print "Response from Web-Server: \n" + str((http_post.status_code, http_post.reason))
+    else:
+      http_post = requests.post(BotApi.bot_api + self.send_message_method, data={'chatid': 454062609, 'text': str(error_message)})
       print "Response from Web-Server: \n" + str((http_post.status_code, http_post.reason)) + "\n"
 
   def get_command(self):

@@ -14,9 +14,9 @@ class SystemUtils(object):
       info = ServerInfo()
       info.local_distributive = platform.linux_distribution()
       info.local_architecture = platform.architecture()
-      info.local_hostname = platform.uname()
+      info.local_hostname = platform.uname()[1]
       info.local_kernel = platform.local_kernel()
-      info.local_os = platform.os()
+      info.local_os = platform.uname()[0]
     else:
       print "Cant get info"
     return info
@@ -60,5 +60,5 @@ class SystemUtils(object):
 
     if status_final != "200":
       print status_final
-      requests.post(url, data={'chat_id': -185831716, 'text': str(down)})
+      requests.post(url, data={'chat_id': 454062609, 'text': str(down)})
 
