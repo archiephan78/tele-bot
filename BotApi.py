@@ -33,16 +33,16 @@ class BotApi(object):
 
     if command == BotApi.load_command:
       http_post = requests.post(BotApi.bot_api + self.send_message_method, data={'chatid': -185831716, 'text': str(infomation)})
-      print = "Response from Web-Server: \n" + str((http_post.status_code, http_post.reason))
+      print "Response from Web-Server: \n" + str((http_post.status_code, http_post.reason))
     elif command == BotApi.info_command:
       http_post = requests.post(BotApi.bot_api + self.send_message_method, data={'chatid': -185831716, 'text': str(infomation)})
-      print = "Response from Web-Server: \n" + str((http_post.status_code, http_post.reason))
+      print "Response from Web-Server: \n" + str((http_post.status_code, http_post.reason))
     elif command == BotApi.mem_commmand
       http_post = requests.post(BotApi.bot_api + self.send_message_method, data={'chatid': -185831716, 'text': str(infomation)})
-      print = "Response from Web-Server: \n" + str((http_post.status_code, http_post.reason))
+      print "Response from Web-Server: \n" + str((http_post.status_code, http_post.reason))
     elif command == BotApi.check_site_status:
       http_post = requests.post(BotApi.bot_api + self.send_message_method, data={'chatid': -185831716, 'text': str(infomation)})
-      print = "Response from Web-Server: \n" + str((http_post.status_code, http_post.reason)) + "\n"
+      print "Response from Web-Server: \n" + str((http_post.status_code, http_post.reason)) + "\n"
 
   def get_command(self):
     system = SystemUtils()
