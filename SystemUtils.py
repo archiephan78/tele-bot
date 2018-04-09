@@ -30,7 +30,7 @@ class SystemUtils(object):
     return load_avg
 
   def get_mem_server(self, command_mem):
-    if command_mem == "/mem":
+    if command_mem == "/memory":
       with open('/proc/meminfo', 'r') as mem:
         ret = {}
         tmp = 0
