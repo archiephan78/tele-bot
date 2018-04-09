@@ -42,9 +42,9 @@ class BotApi(object):
     elif command == BotApi.mem_command:
       http_post = requests.post(BotApi.bot_api + self.send_message_method, data={'chatid': 454062609, 'text': str(infomation)})
       print "Response from Web-Server: \n" + str((http_post.status_code, http_post.reason))
-    elif command == BotApi.check_site_status:
-      http_post = requests.post(BotApi.bot_api + self.send_message_method, data={'chatid': 454062609, 'text': str(infomation)})
-      print "Response from Web-Server: \n" + str((http_post.status_code, http_post.reason))
+#    elif command == BotApi.check_site_status:
+#      http_post = requests.post(BotApi.bot_api + self.send_message_method, data={'chatid': 454062609, 'text': str(infomation)})
+#      print "Response from Web-Server: \n" + str((http_post.status_code, http_post.reason))
     else:
       http_post = requests.post(BotApi.bot_api + self.send_message_method, data={'chatid': 454062609, 'text': str(error_message)})
       print "Response from Web-Server: \n" + str((http_post.status_code, http_post.reason)) + "\n"
@@ -108,25 +108,17 @@ class BotApi(object):
             elif command == BotApi.mem_command:
               mem = system.get_mem_server(command)
               self.send_message(command, mem)
-            elif command == BotApi.check_site_status:
-              online_status = system.get_http_status(command)
-              self.send_message(command, online_status)
+#            elif command == BotApi.check_site_status:
+#              web_stat = system.get_http_status(command)
+#              self.send_message(command, web_stat)
             else:
               self.send_message(command, '')
               print "Nothing to send, error command has been entered"
           else:
-            self.detect_wrong_user()
+            print "paas"
     else:
       print "File: " + file_with_id + " doesn't exist"
 
-
-  def detect_wrong_user(self):
-    values = {}
-    values['chat_id'] = self.json_response['result'][-1]['message']['chat']['id']
-    first_name_wrong_user = self.json_response['result'][-1]['message']['chat']['first_name']
-    last_name_wrong_user = self.json_response['result'][-1]['message']['chat']['last_name']
-    values['text'] = "Hello " + first_name_wrong_user + " " + last_name_wrong_user + " you are not authorized to send commands"
-    http_post = requests.post(BotApi.bot_api + self.send_message_method, data=values)
 
   def get_auto_site_status(self):
     api_status = SystemUtils()

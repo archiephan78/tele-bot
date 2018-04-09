@@ -49,7 +49,7 @@ class SystemUtils(object):
 
   def get_http_status(self):
 
-    host = "www.midascoin.xyz"
+    host = "www.kenh14.vn"
     url = "https://api.telegram.org/bot574513532:AAFN3cEsV48DfFUv90wYhITiPb-nlFQ81Pg/sendMessage"
     down = "Die roi ne =))"
 
