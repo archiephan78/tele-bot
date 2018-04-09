@@ -16,11 +16,11 @@ class BotApi(object):
     self.json_reponse = None
 
   bot_token = '574513532:AAFN3cEsV48DfFUv90wYhITiPb-nlFQ81Pg'
-  bot_url = 'https://api.telegram.org/bot'
-  bot_api = bot_url + bot_token
+  api_url = 'https://api.telegram.org/bot'
+  full_url = api_url + bot_token
   status_json = '/getUpdates'
   send_message_method = '/sendMessage'
-  update_url = bot_api + status_json
+  update_url = full_url + status_json
   user_id = 454062609
 
   load_command = "/load"
@@ -34,19 +34,22 @@ class BotApi(object):
     error_message = "Wrong command!"
 
     if command == BotApi.load_command:
-      http_post = requests.post(BotApi.bot_api + self.send_message_method, data={'chatid': 454062609, 'text': str(infomation)})
+      http_post = requests.post(BotApi.full_url + self.send_message_method, data={'chatid': 454062609, 'text': str(infomation)})
       print "Response from Web-Server: \n" + str((http_post.status_code, http_post.reason))
     elif command == BotApi.info_command:
-      http_post = requests.post(BotApi.bot_api + self.send_message_method, data={'chatid': 454062609, 'text': str(infomation)})
+      http_post = requests.post(BotApi.full_url + self.send_message_method, data={'chatid': 454062609, 'text': str(infomation)})
       print "Response from Web-Server: \n" + str((http_post.status_code, http_post.reason))
     elif command == BotApi.mem_command:
-      http_post = requests.post(BotApi.bot_api + self.send_message_method, data={'chatid': 454062609, 'text': str(infomation)})
+      http_post = requests.post(BotApi.full_url + self.send_message_method, data={'chatid': 454062609, 'text': str(infomation)})
+      print "Response from Web-Server: \n" + str((http_post.status_code, http_post.reason))
+    elif command == BotApi.help_command:
+      http_post = requests.post(BotApi.full_url + self.send_message_method, data={'chat_id': 454062609, 'text': help_message})
       print "Response from Web-Server: \n" + str((http_post.status_code, http_post.reason))
 #    elif command == BotApi.check_site_status:
 #      http_post = requests.post(BotApi.bot_api + self.send_message_method, data={'chatid': 454062609, 'text': str(infomation)})
 #      print "Response from Web-Server: \n" + str((http_post.status_code, http_post.reason))
     else:
-      http_post = requests.post(BotApi.bot_api + self.send_message_method, data={'chatid': 454062609, 'text': str(error_message)})
+      http_post = requests.post(BotApi.full_url + self.send_message_method, data={'chatid': 454062609, 'text': str(error_message)})
       print "Response from Web-Server: \n" + str((http_post.status_code, http_post.reason)) + "\n"
 
   def get_command(self):
@@ -120,15 +123,15 @@ class BotApi(object):
       print "File: " + file_with_id + " doesn't exist"
 
 
-  def get_auto_site_status(self):
-    api_status = SystemUtils()
-    while 1:
-      try:
-        api_status.get_http_status()
-        time.sleep(5)
-      except Exception as e:
-        time.sleep(5)
-        print str(e)
+#  def get_auto_site_status(self):
+#    api_status = SystemUtils()
+#    while 1:
+#      try:
+#        api_status.get_http_status()
+#        time.sleep(5)
+#      except Exception as e:
+#        time.sleep(5)
+#        print str(e)
     
   def engine(self):
     while 1:
@@ -139,9 +142,9 @@ class BotApi(object):
         time.sleep(5)
         print str(e)
 
-  def run_thread1(self):
-    thread = threading.Thread(target=self.get_auto_site_status)
-    thread.start()
+#  def run_thread1(self):
+#    thread = threading.Thread(target=self.get_auto_site_status)
+#    thread.start()
 
   def run_thread2(self):
     thread = threading.Thread(target=self.engine)
@@ -150,8 +153,8 @@ class BotApi(object):
 if __name__ == '__main__':
 
   print 'Starting BOT..'
-  obj = BotApi()
-  obj.run_thread1()
+#  obj = BotApi()
+#  obj.run_thread1()
 
   obj1 = BotApi()
   obj1.run_thread2()

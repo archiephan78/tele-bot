@@ -47,18 +47,18 @@ class SystemUtils(object):
       print "Cant get data"
     return mem
 
-  def get_http_status(self):
+#  def get_http_status(self):
 
-    host = "www.kenh14.vn"
-    url = "https://api.telegram.org/bot574513532:AAFN3cEsV48DfFUv90wYhITiPb-nlFQ81Pg/sendMessage"
-    down = "Die roi ne =))"
+#    host = "www.kenh14.vn"
+#    url = "https://api.telegram.org/bot574513532:AAFN3cEsV48DfFUv90wYhITiPb-nlFQ81Pg/sendMessage"
+#    down = "Die roi ne =))"
 
-    conn = httplib.HTTPConnection(host)
-    conn.request("HEAD", "/")
-    site_status = conn.getresponse().status
-    status_final = str(site_status)
+#    conn = httplib.HTTPConnection(host)
+#    conn.request("HEAD", "/")
+#    site_status = conn.getresponse().status
+#    status_final = str(site_status)
 
-    if status_final != "200":
-      print status_final
-      requests.post(url, data={'chat_id': 454062609, 'text': str(down)})
+#    if status_final != "200":
+#      print status_final
+#      requests.post(url, data={'chat_id': 454062609, 'text': str(down)})
 
