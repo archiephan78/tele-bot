@@ -14,9 +14,9 @@ import threading
 class BotApi(object):
 
     def __init__(self,
-                bot_token = '574513532:AAFN3cEsV48DfFUv90wYhITiPb-nlFQ81Pg',
+                bot_token = 'xxxxxx',
                 api_url = 'https://api.telegram.org/bot',
-                user_id = 454062609):
+                user_id = 343434):
         self.json_response = None
         full_url = api_url + bot_token
         status_json = '/getUpdates',
